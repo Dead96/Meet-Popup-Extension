@@ -1,0 +1,14 @@
+{
+  "name": "Meet Popup Extension",
+  "description": "Meet Popup Extension allows users to open their presentation or webcams in a separate window during Google Meet sessions. ",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["scripting", "tabs"],
+  "host_permissions": ["https://meet.google.com/*"]
+}
