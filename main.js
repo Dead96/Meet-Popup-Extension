@@ -9,7 +9,12 @@ function main() {
   unlistened
     .map((v) => ({ video: v, parent: getVideoParent(v) }))
     .map((e) => ({ video: e.video, parent: e.parent, more_options_button: getMoreVertButton(e.parent) }))
-    .forEach((e) => listenButtonEvent(e));
+    .forEach((e) => {
+      try { listenButtonEvent(e); }
+      catch (err) {
+        e.video.removeAttribute("data-listened");
+      }
+    });
   setTimeout(main, 1000);
 }
 
